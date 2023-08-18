@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Ajaxのサンプル</title>
+<!-- JQueryの読み込み -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<p>名前を入力して、送信ボタンを押してください。</p>
+<p>
+	<label>名前 </lable><input type="text" name="name" id="name">
+	<input type="button" id="button1" value="送信">
+</p>
+<div id="result"></div>
+<!-- scriptの記入 -->
+<script type="text/javascript">
+$(function(){
+	$('#button1').click(function(){
+        // $.ajaxメソッドで通信を行う
+		$.ajax({
+            // $.ajax()の引数のurlは同一ドメイン内でなければなりません。
+			url:'sample.php',
+			type:'GET',
+			dataType:'text',
+			data: {
+				your_name:$('#name').val()
+			},
+            // $.whenは先に実行したい処理
+            // $.doneは後に実行したい処理
+            // dataはテキストボックスに入力された文字列を取得
+		}).done(function(data){
+			$('#result').html(data);
+
+            // エラーが発生したときの処理
+		}).fail(function(){
+			alert('通信に失敗しました。');
+		});
+	});
+});
+</script>
+</body>
+</html>
