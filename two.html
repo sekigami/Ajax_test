@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-<meta charset="utf-8">
-  <title>複数の機能</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="ajax.js"></script>
-</head>
-<body>
-  <h2>リアルタイム検索機能</h2>
-  <input type="text" id="search-input" placeholder="キーワードを入力">
-  <ul id="search-results"></ul>
+    <head>
+        <meta charset="utf-8" />
+        <title>複数の機能</title>
 
-  <h2>タスクリストの非同期追加</h2>
-  <input type="text" id="task-input" placeholder="新しいタスクを追加">
-  <button id="add-task-button">追加</button>
-  <ul id="task-list"></ul>
-</body>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+        <script src="ajax.js"></script>
+    </head>
+    <body>
+        <h2>リアルタイム検索機能</h2>
+        <input type="text" id="search-input" placeholder="キーワードを入力" />
+        <ul id="search-results"></ul>
+
+        <h2>タスクリストの非同期追加</h2>
+        <input type="text" id="task-input" placeholder="新しいタスクを追加" />
+        <button id="add-task-button">追加</button>
+        <ul id="task-list"></ul>
+
+        <h2>地図の更新</h2>
+        <div id="map" style="width: 100%; height: 500px"></div>
+        <script>
+            // initMap() 関数を呼び出して地図を初期化
+            initMap();
+        </script>
+    </body>
 </html>
-
